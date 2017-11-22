@@ -1,4 +1,4 @@
-package com.javaonthecloud.hateoas.repository;
+package com.javaonthecloud.hateoas.model.customer.repository;
 
 import com.javaonthecloud.hateoas.model.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
