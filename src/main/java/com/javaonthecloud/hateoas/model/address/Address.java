@@ -19,10 +19,6 @@ public class Address {
 
     private String zip;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
     public Address() {}
 
     public Address(String street, String number, String complement, String zip) {
@@ -72,11 +68,4 @@ public class Address {
         this.zip = zip;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 }

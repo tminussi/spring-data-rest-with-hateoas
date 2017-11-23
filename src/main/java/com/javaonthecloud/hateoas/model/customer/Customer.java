@@ -16,14 +16,18 @@ public class Customer {
 
     private String email;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private String phone;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
     private Collection<Address> addresses;
 
     public Customer() {}
 
-    public Customer(String name, String email) {
+    public Customer(String name, String email, String phone) {
         this.name = name;
         this.email = email;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -56,5 +60,13 @@ public class Customer {
 
     public void setAddresses(Collection<Address> addresses) {
         this.addresses = addresses;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
