@@ -44,9 +44,9 @@ public class HateoasApplication {
             Address guilhermeAddress = new Address("Rua 6", "6", "complemento6", "66666-666");
             guilherme.setAddresses(Collections.singletonList(guilhermeAddress));
 
-            Customer tat = new Customer("Tat", "tat@matera.com", "99999-9999");
+            Customer estevao = new Customer("Estevao", "estevao@matera.com", "99999-9999");
             Address tatAddress = new Address("Rua 7", "7", "complemento7", "77777-777");
-            tat.setAddresses(Collections.singletonList(tatAddress));
+            estevao.setAddresses(Collections.singletonList(tatAddress));
 
             Customer geraldo = new Customer("Geraldo", "geraldo@matera.com", "99999-9999");
             Address geraldoAddress = new Address("Rua 8", "8", "complemento8", "88888-888");
@@ -58,7 +58,7 @@ public class HateoasApplication {
             repository.save(fernando);
             repository.save(thiago);
             repository.save(guilherme);
-            repository.save(tat);
+            repository.save(estevao);
             repository.save(geraldo);
         };
     }
