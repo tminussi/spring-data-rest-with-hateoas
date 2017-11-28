@@ -1,8 +1,11 @@
 package com.javaonthecloud.hateoas.model.customer;
 
 import com.javaonthecloud.hateoas.model.address.Address;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.ZonedDateTime;
 import java.util.Collection;
 
 @Entity
@@ -21,6 +24,8 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Collection<Address> addresses;
+
+    private ZonedDateTime createdTime;
 
     public Customer() {}
 
@@ -69,4 +74,20 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public ZonedDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(ZonedDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    @PrePersist
+    public void onPrePersist() {
+        this.createdTime = ZonedDateTime.now();
+        System.out.println(this.createdTime);
+        System.out.println(Date.from(createdTime.toInstant()));
+    }
+
 }

@@ -8,6 +8,8 @@ import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.util.StringUtils;
 
+import java.util.concurrent.ArrayBlockingQueue;
+
 @RepositoryEventHandler(Customer.class)
 public class CustomerEventHandler {
 
