@@ -9,10 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
-import redis.clients.jedis.Jedis;
 
 import java.util.Collections;
-import java.util.Objects;
 
 @EntityScan(basePackageClasses = {HateoasApplication.class, Jsr310JpaConverters.class})
 @SpringBootApplication
@@ -23,7 +21,7 @@ public class HateoasApplication {
     }
 
     @Bean
-    public CommandLineRunner init(CustomerRepository repository, Jedis jedis) {
+    public CommandLineRunner init(CustomerRepository repository) {
         return (event) -> {
             Customer thales = new Customer("Thales", "thales@matera.com", "99999-9999");
             Address thalesAddress = new Address("Rua 1", "1", "complemento", "11111-111");
@@ -65,13 +63,6 @@ public class HateoasApplication {
             repository.save(guilherme);
             repository.save(estevao);
             repository.save(geraldo);
-
-            jedis.set("car", "bmw");
-            jedis.set("car", "mercedez");
-            jedis.set("car", "golf");
-            jedis.set("car", "mustang");
-
-            Long car = jedis.del("car");
 
         };
     }
